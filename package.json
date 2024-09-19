@@ -1,5 +1,5 @@
 {
-  "name": "gig-detroit",
+  "name": "kayan-archives",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,6 +16,7 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
+    "@phosphor-icons/react": "^2.1.7",
     "axios": "^1.7.4",
     "framer-motion": "^11.3.28",
     "lodash": "^4.17.21",
