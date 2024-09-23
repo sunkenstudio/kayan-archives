@@ -10,7 +10,6 @@ import {
   Stack,
   useTheme,
 } from '@chakra-ui/react';
-import { H4 } from '../Typography';
 import { Button } from '../Button';
 
 export const SubscribeForm = () => {
