@@ -118,10 +118,11 @@ export default function About() {
                 from the village of Long Pilah, Sarawak, to attend the winter
                 celebrations and traditional wedding ceremony of our cousin,
                 Cameron Sheufelt, and his wife Rebecca, who left Long Pilah to
-                go to school in Kuala Lumpur, Malaysia's capital and largest
-                city. The two met in 2022 when Cameron followed an adventurous
-                whim to go backpacking alone throughout Southeast Asia, and have
-                since begun to build a life together in Kuala Lumpur.
+                go to school in Kuala Lumpur, Malaysia{`&apos`}s capital and
+                largest city. The two met in 2022 when Cameron followed an
+                adventurous whim to go backpacking alone throughout Southeast
+                Asia, and have since begun to build a life together in Kuala
+                Lumpur.
               </Paragraph>
               <Paragraph mb="1rem" lineHeight={'2rem'}>
                 The idea of the documentary was conceived as a way of recording

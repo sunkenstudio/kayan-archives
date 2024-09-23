@@ -9,7 +9,7 @@ import {
   useMediaQuery,
   useTheme,
 } from '@chakra-ui/react';
-import { H3, H4 } from '../_components/Typography';
+import { H3 } from '../_components/Typography';
 import { Button } from '../_components/Button';
 
 export default function Contact() {

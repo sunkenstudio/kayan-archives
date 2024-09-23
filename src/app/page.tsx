@@ -4,7 +4,6 @@ import {
   Divider,
   HStack,
   Image,
-  Input,
   Link,
   Stack,
   useMediaQuery,
