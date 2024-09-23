@@ -1,14 +1,18 @@
 'use client';
 
-import { Box, Link, useTheme } from '@chakra-ui/react';
+import { Box, ChakraProps, Link, useTheme } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 
-interface SocialButtonProps {
+interface SocialButtonProps extends ChakraProps {
   href: string;
   children: ReactNode;
 }
 
-export const SocialButton = ({ href, children }: SocialButtonProps) => {
+export const SocialButton = ({
+  href,
+  children,
+  ...rest
+}: SocialButtonProps) => {
   const { colors } = useTheme();
   return (
     <Link href={href}>
@@ -19,6 +23,7 @@ export const SocialButton = ({ href, children }: SocialButtonProps) => {
         boxShadow={'1px 1px 5px 0px rgba(0,0,0,0.75)'}
         transition="all .25s ease"
         _hover={{ transform: 'scale(1.15)' }}
+        {...rest}
       >
         {children}
       </Box>
