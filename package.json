@@ -9,7 +9,7 @@
     "lint": "next lint",
     "format": "prettier --write 'src/**/*.{ts,tsx,js,jsx,css,html}'",
     "prepare": "husky",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:watch": "jest --watch"
   },
   "dependencies": {
