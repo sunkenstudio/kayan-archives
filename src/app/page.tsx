@@ -5,14 +5,16 @@ import {
   HStack,
   Image,
   Input,
+  Link,
   Stack,
   useMediaQuery,
   useTheme,
 } from '@chakra-ui/react';
 import { H1, H3, H4, Paragraph } from './_components/Typography';
-import { DonationProgress } from './_components/DonationProgress';
+// import { DonationProgress } from './_components/DonationProgress';
 import { Button } from './_components/Button';
 import { ArrowUpRight, HandHeart } from '@phosphor-icons/react';
+import { SubscribeForm } from './_components/SubscribeForm';
 
 export default function Home() {
   const [isDesktop] = useMediaQuery('(min-width: 800px)');
@@ -72,36 +74,34 @@ export default function Home() {
             Borneo to document, study, and preserve Kayan culture
           </Paragraph>
         )}
-        {isDesktop && (
+        {/* {isDesktop && (
           <DonationProgress
             percentage={75}
             currentAmount={7500}
             targetAmount={10000}
           />
-        )}
+        )} */}
         <Stack direction={{ base: 'column', md: 'row' }}>
-          <Button
-            variant="primary"
-            title="Support"
-            leftIcon={<HandHeart color={colors.light} size={'2rem'} />}
-            rightIcon={<ArrowUpRight color={colors.light} size={'2rem'} />}
-            justifyContent={'space-between'}
-          />
-          <Button variant="secondary" title="Learn More" />
+          <Link
+            target="_blank"
+            href="https://www.gofundme.com/f/help-fund-kayan-documentary"
+            w="40%"
+          >
+            <Button
+              variant="primary"
+              title="Support"
+              leftIcon={<HandHeart color={colors.light} size={'2rem'} />}
+              rightIcon={<ArrowUpRight color={colors.light} size={'2rem'} />}
+              justifyContent={'space-between'}
+              stretch
+            />
+          </Link>
+          <Link href="/about" w="40%">
+            <Button variant="secondary" title="Learn More" stretch />
+          </Link>
         </Stack>
         {isDesktop && <Divider />}
-        {isDesktop && (
-          <Stack gap="1rem">
-            <H4>Sign up to receive news and updates...</H4>
-            <Input
-              bgColor={colors.gray}
-              border="none"
-              py="2rem"
-              placeholder="EMAIL"
-            />
-            <Button variant="primary" title="Subscribe" />
-          </Stack>
-        )}
+        {isDesktop && <SubscribeForm />}
       </Stack>
     </HStack>
   );
