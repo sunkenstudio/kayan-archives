@@ -12,6 +12,7 @@ import {
 import { H1, H3, H4, Paragraph } from './_components/Typography';
 import { DonationProgress } from './_components/DonationProgress';
 import { Button } from './_components/Button';
+import { ArrowUpRight, HandHeart } from '@phosphor-icons/react';
 
 export default function Home() {
   const [isDesktop] = useMediaQuery('(min-width: 800px)');
@@ -51,6 +52,7 @@ export default function Home() {
         textShadow={{ base: `1px 1px 4px ${colors.dark}`, md: 'none' }}
         p={{ base: '1rem', md: '2.5rem' }}
         overflowY={'scroll'}
+        pb={'5rem'}
       >
         <H1>THE KAYAN ARCHIVES</H1>
         <H3 fontStyle={'italic'} color={colors.green1}>
@@ -65,7 +67,7 @@ export default function Home() {
             Borneo to document, study, and preserve Kayan culture
           </H4>
         ) : (
-          <Paragraph w={{ base: '100%', md: '85%' }} p={'1rem'} mt={'8rem'}>
+          <Paragraph w={{ base: '100%', md: '85%' }} p={'1rem'}>
             A multidisciplinary project in collaboration with the Kayan tribe of
             Borneo to document, study, and preserve Kayan culture
           </Paragraph>
@@ -78,8 +80,14 @@ export default function Home() {
           />
         )}
         <Stack direction={{ base: 'column', md: 'row' }}>
-          <Button type="primary" title="Support" />
-          <Button type="secondary" title="Learn More" />
+          <Button
+            variant="primary"
+            title="Support"
+            leftIcon={<HandHeart color={colors.light} size={'2rem'} />}
+            rightIcon={<ArrowUpRight color={colors.light} size={'2rem'} />}
+            justifyContent={'space-between'}
+          />
+          <Button variant="secondary" title="Learn More" />
         </Stack>
         {isDesktop && <Divider />}
         {isDesktop && (
@@ -91,7 +99,7 @@ export default function Home() {
               py="2rem"
               placeholder="EMAIL"
             />
-            <Button type="primary" title="Subscribe" />
+            <Button variant="primary" title="Subscribe" />
           </Stack>
         )}
       </Stack>

@@ -1,15 +1,19 @@
 'use client';
-import { Button as ChakraButton, Link, useTheme } from '@chakra-ui/react';
-import { ArrowUpRight } from '@phosphor-icons/react';
+import {
+  ButtonProps as ChakraButtonProps,
+  Button as ChakraButton,
+  useTheme,
+} from '@chakra-ui/react';
 
-interface ButtonProps {
-  type: 'primary' | 'secondary';
+interface ButtonProps extends ChakraButtonProps {
+  variant: 'primary' | 'secondary';
   title: string;
+  stretch?: boolean;
 }
-export const Button = ({ type, title, ...rest }: ButtonProps) => {
+export const Button = ({ variant, title, stretch, ...rest }: ButtonProps) => {
   const { colors } = useTheme();
 
-  if (type === 'primary') {
+  if (variant === 'primary') {
     return (
       <ChakraButton
         p={'1.5rem'}
@@ -19,13 +23,15 @@ export const Button = ({ type, title, ...rest }: ButtonProps) => {
         backgroundColor={{ base: colors.dark, md: colors.green2 }}
         color={colors.light}
         minWidth={{ base: '100%', md: '150px' }}
+        w={stretch ? '100%' : '40%'}
+        fontSize={'1.25rem'}
         {...rest}
       >
         {title.toUpperCase()}
       </ChakraButton>
     );
   }
-  if (type === 'secondary') {
+  if (variant === 'secondary') {
     return (
       <ChakraButton
         p={'calc(1.5rem - 4px)'}
@@ -42,6 +48,8 @@ export const Button = ({ type, title, ...rest }: ButtonProps) => {
         }}
         minWidth={{ base: '100%', md: '150px' }}
         color={{ base: colors.light, md: colors.green2 }}
+        w={stretch ? '100%' : '40%'}
+        fontSize={'1.25rem'}
         {...rest}
       >
         {title.toUpperCase()}
