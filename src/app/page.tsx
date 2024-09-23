@@ -56,7 +56,11 @@ export default function Home() {
         pb={'5rem'}
       >
         <H1>THE KAYAN ARCHIVES</H1>
-        <H3 fontStyle={'italic'} color={colors.green1}>
+        <H3
+          fontStyle={'italic'}
+          color={colors.green1}
+          textShadow={{ base: `1px 1px 4px ${colors.dark}`, md: 'none' }}
+        >
           SARAWAK, MALAYSIA
         </H3>
         {isDesktop ? (
@@ -80,11 +84,11 @@ export default function Home() {
             targetAmount={10000}
           />
         )} */}
-        <Stack direction={{ base: 'column', md: 'row' }}>
+        <Stack direction={{ base: 'column', md: 'row' }} gap="1rem">
           <Link
             target="_blank"
             href="https://www.gofundme.com/f/help-fund-kayan-documentary"
-            w="40%"
+            w={{ base: '100%', md: '40%' }}
           >
             <Button
               variant="primary"
@@ -95,7 +99,7 @@ export default function Home() {
               stretch
             />
           </Link>
-          <Link href="/about" w="40%">
+          <Link href="/about" w={{ base: '100%', md: '40%' }}>
             <Button variant="secondary" title="Learn More" stretch />
           </Link>
         </Stack>

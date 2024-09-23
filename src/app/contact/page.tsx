@@ -3,14 +3,12 @@ import {
   Box,
   HStack,
   Image,
-  Input,
   Stack,
-  Textarea,
   useMediaQuery,
   useTheme,
 } from '@chakra-ui/react';
 import { H3 } from '../_components/Typography';
-import { Button } from '../_components/Button';
+import { ContactForm } from '../_components/ContactForm';
 
 export default function Contact() {
   const [isDesktop] = useMediaQuery('(min-width: 800px)');
@@ -53,33 +51,7 @@ export default function Contact() {
         pb={'5rem'}
       >
         <H3>Contact Us</H3>
-        <Stack>
-          <Input
-            bgColor={colors.gray}
-            border="none"
-            placeholder="Jane"
-            color={colors.dark}
-          />
-          <Input
-            bgColor={colors.gray}
-            border="none"
-            placeholder="Doe"
-            color={colors.dark}
-          />
-          <Input
-            bgColor={colors.gray}
-            border="none"
-            placeholder="janedoe@gmail.com"
-            color={colors.dark}
-          />
-          <Textarea
-            bgColor={colors.gray}
-            border="none"
-            placeholder="Message..."
-            color={colors.dark}
-          />
-          <Button variant="primary" title="Submit" stretch />
-        </Stack>
+        <ContactForm />
       </Stack>
     </HStack>
   );

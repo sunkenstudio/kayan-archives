@@ -10,6 +10,7 @@ interface ButtonProps extends ChakraButtonProps {
   title: string;
   stretch?: boolean;
 }
+
 export const Button = ({ variant, title, stretch, ...rest }: ButtonProps) => {
   const { colors } = useTheme();
 
