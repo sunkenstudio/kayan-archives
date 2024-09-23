@@ -26,10 +26,15 @@ export const breakpoints = {
 };
 
 export const colors = {
-  light: '#fff',
+  light:'#e6f2ee',
+  light1: '#fff',
   dark: '#1c1c1c',
   gray:'#f5f5f5',
-  //'#1A202C'
+  green1:'#5a612e',
+  green2:'#0e492d',
+  green3:'#e6f2ee',
+  green4:'#83a99c',
+  blue1:'#556f93',
 };
 
 // 3. extend the theme

@@ -17,7 +17,15 @@ export const DonationProgress = ({
   const { colors } = useTheme();
 
   return (
-    <Box zIndex={999} w="100%" p={4} borderRadius="lg" bgColor={colors.gray}>
+    <Box
+      zIndex={999}
+      w="100%"
+      p={4}
+      borderRadius="lg"
+      bgColor={colors.light}
+      color={colors.dark}
+      border={`4px solid ${colors.green2}`}
+    >
       <H4 mb={2}>Fundraiser Progress: {percentage}%</H4>
       <Progress
         value={percentage}

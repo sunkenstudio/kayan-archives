@@ -17,10 +17,12 @@ import {
 import React from 'react';
 import { H4, H5 } from '../Typography';
 import { List } from '@phosphor-icons/react';
+import { usePathname } from 'next/navigation';
 
 export const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isDesktop] = useMediaQuery('(min-width: 800px)');
+  const currentPath = usePathname();
   const { colors } = useTheme();
 
   const links = [
@@ -29,8 +31,6 @@ export const NavBar = () => {
     { label: 'SUPPORT', path: '/support' },
     { label: 'CONTACT', path: '/contact' },
   ];
-
-  const currentPath = window.location.pathname;
 
   return (
     <Box
@@ -43,6 +43,7 @@ export const NavBar = () => {
       backgroundColor={{ base: 'transparent', md: colors.gray }}
       position={'absolute'}
       top={0}
+      color={colors.dark}
     >
       {isDesktop ? (
         <HStack gap={'1rem'}>
@@ -66,7 +67,7 @@ export const NavBar = () => {
               <Link
                 key={i.label}
                 href={isCurrent ? undefined : i.path}
-                backgroundColor={isCurrent ? colors.dark : 'inherit'}
+                backgroundColor={isCurrent ? colors.green1 : 'inherit'}
                 color={isCurrent ? colors.light : 'inherit'}
                 h="100%"
                 display="flex"
@@ -76,7 +77,7 @@ export const NavBar = () => {
                 px="3rem"
                 minWidth="100px"
                 cursor={isCurrent ? 'not-allowed' : 'pointer'}
-                _hover={{ transform: 'scale(1.05)' }}
+                border={'none'}
               >
                 <H5>{i.label}</H5>
               </Link>

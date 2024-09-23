@@ -1,53 +1,37 @@
 'use client';
-import { Box, HStack, Link, useTheme } from '@chakra-ui/react';
+import { HStack, useMediaQuery, useTheme } from '@chakra-ui/react';
 import { FacebookLogo, InstagramLogo, TiktokLogo } from '@phosphor-icons/react';
 import React from 'react';
+import { SocialButton } from './SocialButton';
 
 export const SocialMediaBar = () => {
   const { colors } = useTheme();
+  const [isDesktop] = useMediaQuery('(min-width: 800px)');
+
   return (
     <HStack
       position={'absolute'}
       bottom={'1rem'}
-      w="100%"
-      justifyContent={'center'}
+      w={{ base: '100%', md: '30%' }}
+      justifyContent={{ base: 'center', md: 'flex-start' }}
+      ml={{ base: 0, md: '3rem' }}
+      gap={{ base: '1rem', md: '1.5rem' }}
     >
-      <Link href="https://facebook.com">
-        <Box
-          backgroundColor={colors.light}
-          padding={'.25rem'}
-          borderRadius={'5rem'}
-          boxShadow={'1px 1px 5px 0px rgba(0,0,0,0.75)'}
-          transition="all .25s ease"
-          _hover={{ transform: 'scale(1.15)' }}
-        >
-          <FacebookLogo size={'2rem'} />
-        </Box>
-      </Link>
-      <Link href="https://instagram.com">
-        <Box
-          backgroundColor={colors.light}
-          padding={'.25rem'}
-          borderRadius={'5rem'}
-          boxShadow={'1px 1px 5px 0px rgba(0,0,0,0.75)'}
-          transition="all .25s ease"
-          _hover={{ transform: 'scale(1.15)' }}
-        >
-          <InstagramLogo size={'2rem'} />
-        </Box>
-      </Link>
-      <Link href="https://tiktok.com">
-        <Box
-          backgroundColor={colors.light}
-          padding={'.25rem'}
-          borderRadius={'5rem'}
-          boxShadow={'1px 1px 5px 0px rgba(0,0,0,0.75)'}
-          transition="all .25s ease"
-          _hover={{ transform: 'scale(1.15)' }}
-        >
-          <TiktokLogo size={'2rem'} />
-        </Box>
-      </Link>
+      <SocialButton href="https://facebook.com">
+        <FacebookLogo
+          size={isDesktop ? '2.5rem' : '2rem'}
+          color={colors.light}
+        />
+      </SocialButton>
+      <SocialButton href="https://instagram.com">
+        <InstagramLogo
+          size={isDesktop ? '2.5rem' : '2rem'}
+          color={colors.light}
+        />
+      </SocialButton>
+      <SocialButton href="https://tiktok.com">
+        <TiktokLogo size={isDesktop ? '2.5rem' : '2rem'} color={colors.light} />
+      </SocialButton>
     </HStack>
   );
 };
