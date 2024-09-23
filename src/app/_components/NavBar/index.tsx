@@ -44,6 +44,7 @@ export const NavBar = () => {
       position={'absolute'}
       top={0}
       color={colors.dark}
+      zIndex={999}
     >
       {isDesktop ? (
         <HStack gap={'1rem'}>

@@ -26,6 +26,7 @@ export const Button = ({ variant, title, stretch, ...rest }: ButtonProps) => {
         minWidth={{ base: '100%', md: '150px' }}
         w={stretch ? '100%' : '40%'}
         fontSize={'1.25rem'}
+        h="4rem"
         {...rest}
       >
         {title.toUpperCase()}
@@ -51,6 +52,7 @@ export const Button = ({ variant, title, stretch, ...rest }: ButtonProps) => {
         color={{ base: colors.light, md: colors.green2 }}
         w={stretch ? '100%' : '40%'}
         fontSize={'1.25rem'}
+        h="4rem"
         {...rest}
       >
         {title.toUpperCase()}

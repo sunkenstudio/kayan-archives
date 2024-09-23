@@ -1,17 +1,9 @@
 'use client';
-import {
-  Box,
-  HStack,
-  Image,
-  Stack,
-  useMediaQuery,
-  useTheme,
-} from '@chakra-ui/react';
+import { Box, HStack, Image, Stack, useTheme } from '@chakra-ui/react';
 import { H3 } from '../_components/Typography';
 import { ContactForm } from '../_components/ContactForm';
 
 export default function Contact() {
-  const [isDesktop] = useMediaQuery('(min-width: 800px)');
   const { colors } = useTheme();
 
   return (
@@ -29,15 +21,13 @@ export default function Contact() {
         h="105%"
         overflow={'hidden'}
       />
-      {!isDesktop && (
-        <Box
-          position="absolute"
-          w="100%"
-          h="100%"
-          bgColor={colors.green2}
-          opacity={0.7}
-        />
-      )}
+      <Box
+        position="absolute"
+        w="100%"
+        h="100%"
+        bgColor={colors.green2}
+        opacity={{ base: 0.7, md: 0 }}
+      />
       <Stack
         position={{ base: 'absolute', md: 'relative' }}
         gap={{ base: '2rem', md: '2rem' }}

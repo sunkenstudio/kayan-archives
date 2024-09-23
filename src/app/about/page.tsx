@@ -10,13 +10,11 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
-  useMediaQuery,
   useTheme,
 } from '@chakra-ui/react';
 import { H3, Paragraph } from '../_components/Typography';
 
 export default function About() {
-  const [isDesktop] = useMediaQuery('(min-width: 800px)');
   const { colors } = useTheme();
 
   return (
@@ -34,15 +32,13 @@ export default function About() {
         h="100%"
         overflow={'hidden'}
       />
-      {!isDesktop && (
-        <Box
-          position="absolute"
-          w="100%"
-          h="100%"
-          bgColor={colors.green2}
-          opacity={0.7}
-        />
-      )}
+      <Box
+        position="absolute"
+        w="100%"
+        h="100%"
+        bgColor={colors.green2}
+        opacity={{ base: 0.7, md: 0 }}
+      />
       <Stack
         position={{ base: 'absolute', md: 'relative' }}
         gap={{ base: '2rem', md: '3rem' }}

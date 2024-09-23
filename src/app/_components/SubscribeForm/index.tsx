@@ -41,7 +41,6 @@ export const SubscribeForm = () => {
         style={{ display: 'flex', width: '100%', justifyContent: 'center' }}
       >
         <Stack gap="1rem" w="100%">
-          <H4>Sign up to receive news and updates...</H4>
           <FormControl isRequired>
             <FormLabel htmlFor={'input-email'}>EMAIL</FormLabel>
             <Input

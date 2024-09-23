@@ -34,15 +34,13 @@ export default function Home() {
         h="100%"
         overflow={'hidden'}
       />
-      {!isDesktop && (
-        <Box
-          position="absolute"
-          w="100%"
-          h="100%"
-          bgColor={colors.green2}
-          opacity={0.7}
-        />
-      )}
+      <Box
+        position="absolute"
+        w="100%"
+        h="100%"
+        bgColor={colors.green2}
+        opacity={{ base: 0.7, md: 0 }}
+      />
       <Stack
         position={{ base: 'absolute', md: 'relative' }}
         gap={{ base: '2rem', md: '3rem' }}
@@ -104,7 +102,12 @@ export default function Home() {
           </Link>
         </Stack>
         {isDesktop && <Divider />}
-        {isDesktop && <SubscribeForm />}
+        {isDesktop && (
+          <>
+            <H4>Sign up to receive news and updates...</H4>
+            <SubscribeForm />
+          </>
+        )}
       </Stack>
     </HStack>
   );
