@@ -19,7 +19,6 @@ export const ContactForm = () => {
   const formik = useFormik({
     initialValues: {} as Record<string, string>,
     onSubmit: () => {
-      console.log('fire', formik.values);
       setIsFiring(true);
       sendContactEmail(formik.values).then((res) => {
         if (res.success) {

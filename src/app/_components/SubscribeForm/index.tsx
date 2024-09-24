@@ -19,7 +19,6 @@ export const SubscribeForm = () => {
   const formik = useFormik({
     initialValues: {} as Record<string, string>,
     onSubmit: () => {
-      console.log('fire', formik.values);
       setIsFiring(true);
       sendSubscriberEmail(formik.values).then((res) => {
         if (res.success) {
