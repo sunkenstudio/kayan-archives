@@ -40,6 +40,10 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+        build-args: |
+          RESEND_API_KEY="${{ secrets.RESEND_API_KEY }}"
+          RESEND_SENDER_EMAIL="${{ secrets.RESEND_SENDER_EMAIL }}"
+          RESEND_RECEIVER_EMAIL="${{ secrets.RESEND_RECEIVER_EMAIL }}"
 
   pull_on_server:
     name: Pull Latest Docker Image On Server and Run App Container

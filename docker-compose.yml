@@ -1,0 +1,8 @@
+services:
+  prod:
+    image: dwarrick/kayan-archives:main
+    build: .
+    ports:
+      - '4588:4588'
+    env_file:
+      - .env
