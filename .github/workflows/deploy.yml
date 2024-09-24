@@ -1,0 +1,101 @@
+name: Build and Deploy to Digitalocean Droplet
+
+on:
+  workflow_run:
+    workflows: ['Continuous Integration']
+    types:
+      - completed
+    branches:
+      - main
+
+env:
+  REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}
+  IMAGE_NAME: kayan-archives
+
+jobs:
+  push_to_registry:
+    name: Push Docker image to Docker Hub
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+        build-args: |
+          RESEND_API_KEY="${{ secrets.RESEND_API_KEY }}"
+          RESEND_SENDER_EMAIL="${{ secrets.RESEND_SENDER_EMAIL }}"
+          RESEND_RECEIVER_EMAIL="${{ secrets.RESEND_RECEIVER_EMAIL }}"
+
+  pull_on_server:
+    name: Pull Latest Docker Image On Server and Run App Container
+    needs: push_to_registry
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: docker system prune -a -f --volumes && bash ~/kayan-archives/update.sh
+
+      - name: notify discord of successful deploy
+        if: success()
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_EMBEDS: '[    { 
+          "author": {  "icon_url": "https://avatars.githubusercontent.com/${{ github.actor }}", "name": "${{ github.actor }}", "url": "https://github.com/${{github.actor}}" },
+          "url": "https://github.com/${{github.repository}}/commit/${{github.sha}}",
+          "fields": [
+          { "name": "Repository", "value": "[${{github.event.repository.name}}](${{github.event.repository.clone_url}})", "inline": true },
+          { "name": "Branch", "value": "[${{github.ref_name}}](https://github.com/${{github.repository}}/tree/${{github.ref_name}})", "inline": true },
+          { "name": "Event", "value": "${{github.event_name}}", "inline": true },
+          { "name": "Status", "value": "SUCCESS!!! 😃", "inline": true },
+          { "name": "Commit Message", "value": "[${{ github.event.pull_request.head.sha }}](https://github.com/${{github.repository}}/commit/${{github.sha}}) - `${{github.event.head_commit.message}}`" },
+          { "name": "Author", "value": "[${{github.actor}}](https://github.com/${{github.actor}})" }
+          ],
+          "color":65280,
+          "timestamp": "${{github.event.head_commit.timestamp}}",
+          "footer":{"text": "${{github.event.head_commit.timestamp}}"}
+          }    ]'
+        uses: Ilshidur/action-discord@master
+
+      - name: notify discord of failed deploy
+        if: failure()
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_EMBEDS: '[    { 
+          "author": {  "icon_url": "https://avatars.githubusercontent.com/${{ github.actor }}", "name": "${{ github.actor }}", "url": "https://github.com/${{github.actor}}" },
+          "url": "https://github.com/${{github.repository}}/commit/${{github.sha}}",
+          "fields": [
+          { "name": "Repository", "value": "[${{github.event.repository.name}}](${{github.event.repository.clone_url}})", "inline": true },
+          { "name": "Branch", "value": "[${{github.ref_name}}](https://github.com/${{github.repository}}/tree/${{github.ref_name}})", "inline": true },
+          { "name": "Event", "value": "${{github.event_name}}", "inline": true },
+          { "name": "Status", "value": "Something went wrong.. 😞", "inline": true },
+          { "name": "Commit Message", "value": "[${{ github.event.pull_request.head.sha }}](https://github.com/${{github.repository}}/commit/${{github.sha}}) - `${{github.event.head_commit.message}}`" },
+          { "name": "Author", "value": "[${{github.actor}}](https://github.com/${{github.actor}})" }
+          ],
+          "color":16711680,
+          "timestamp": "${{github.event.head_commit.timestamp}}",
+          "footer":{"text": "${{github.event.head_commit.timestamp}}"}
+          }    ]'
+        uses: Ilshidur/action-discord@master
