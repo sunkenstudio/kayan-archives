@@ -1,12 +1,11 @@
 'use client';
-import { HStack, useMediaQuery, useTheme } from '@chakra-ui/react';
+import { HStack, useTheme } from '@chakra-ui/react';
 import { FacebookLogo, InstagramLogo, TiktokLogo } from '@phosphor-icons/react';
 import React from 'react';
 import { SocialButton } from './SocialButton';
 
 export const SocialMediaBar = () => {
   const { colors } = useTheme();
-  const [isDesktop] = useMediaQuery('(min-width: 800px)');
 
   return (
     <HStack

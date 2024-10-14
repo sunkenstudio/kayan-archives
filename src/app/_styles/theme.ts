@@ -12,7 +12,7 @@ export const breakpoints = {
   lg: '62em', // ~992px
   xl: '80em', // ~1280px
   '2xl': '96em', // ~1536px
-}
+};
 
 export const colors = {
   light: '#e6f2ee',
@@ -40,7 +40,6 @@ const theme = extendTheme({
       'html, body': {
         fontFamily: `sans-serif`,
       },
-      
     },
   },
 });
