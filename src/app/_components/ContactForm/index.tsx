@@ -98,7 +98,7 @@ export const ContactForm = () => {
           <Button
             type="submit"
             variant="primary"
-            title="Subscribe"
+            title="Submit"
             stretch
             isLoading={isFiring}
           />

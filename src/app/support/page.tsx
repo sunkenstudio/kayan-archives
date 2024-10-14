@@ -66,11 +66,7 @@ export default function Support() {
         </Link>
         <H4>Follow us on Instagram, Facebook, and TikTok @kayanarchives</H4>
         <Box display={'inline-block'}>
-          <Link
-            target="_blank"
-            href="https://www.gofundme.com/f/help-fund-kayan-documentary"
-            w={{ base: '100%', md: '40%' }}
-          >
+          <Link target="_blank" href="#" w={{ base: '100%', md: '40%' }}>
             <Button
               mr="1rem"
               mb="1rem"
@@ -86,7 +82,7 @@ export default function Support() {
           </Link>
           <Link
             target="_blank"
-            href="https://www.gofundme.com/f/help-fund-kayan-documentary"
+            href="https://www.instagram.com/kayanarchives/"
             w={{ base: '100%', md: '40%' }}
           >
             <Button
@@ -104,11 +100,7 @@ export default function Support() {
               h="4rem"
             />
           </Link>
-          <Link
-            target="_blank"
-            href="https://www.gofundme.com/f/help-fund-kayan-documentary"
-            w={{ base: '100%', md: '40%' }}
-          >
+          <Link target="_blank" href="#" w={{ base: '100%', md: '40%' }}>
             <Button
               mr="1rem"
               mb="1rem"
