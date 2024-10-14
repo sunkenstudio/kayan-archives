@@ -51,6 +51,7 @@ export const ContactForm = () => {
               value={formik?.values?.firstName}
               onChange={formik.handleChange}
               color={colors.dark}
+              borderRadius={'.5rem'}
             />
           </FormControl>
           <FormControl isRequired>
@@ -65,6 +66,7 @@ export const ContactForm = () => {
               value={formik?.values?.lastName}
               onChange={formik.handleChange}
               color={colors.dark}
+              borderRadius={'.5rem'}
             />
           </FormControl>
           <FormControl isRequired>
@@ -79,6 +81,7 @@ export const ContactForm = () => {
               value={formik?.values?.email}
               onChange={formik.handleChange}
               color={colors.dark}
+              borderRadius={'.5rem'}
             />
           </FormControl>
           <FormControl isRequired>
@@ -93,12 +96,13 @@ export const ContactForm = () => {
               value={formik?.values?.comment}
               onChange={formik.handleChange}
               color={colors.dark}
+              borderRadius={'.5rem'}
             />
           </FormControl>
           <Button
             type="submit"
             variant="primary"
-            title="Subscribe"
+            title="Submit"
             stretch
             isLoading={isFiring}
           />

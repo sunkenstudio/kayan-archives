@@ -51,7 +51,7 @@ export default function Home() {
         textShadow={{ base: `1px 1px 4px ${colors.dark}`, md: 'none' }}
         p={{ base: '1rem', md: '2.5rem' }}
         overflowY={'scroll'}
-        pb={'5rem'}
+        pb={'7rem'}
       >
         <H1>THE KAYAN ARCHIVES</H1>
         <H3

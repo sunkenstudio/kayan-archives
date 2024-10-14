@@ -88,13 +88,14 @@ export const NavBar = () => {
       ) : (
         <IconButton
           aria-label="Navigation"
-          icon={<List size={'1.5rem'} />}
+          icon={<List size={'1.75rem'} color={colors.light} />}
           onClick={onOpen}
-          backgroundColor={colors.light}
-          padding={'.25rem'}
-          borderRadius={'5rem'}
-          boxShadow={'1px 1px 5px 0px rgba(0,0,0,0.75)'}
+          backgroundColor={'transparent'}
+          padding={'.5rem'}
+          paddingY={'1.3rem'}
+          borderRadius={'.5rem'}
           transition="all .25s ease"
+          border={`2px solid ${colors.light}`}
           mr="1rem"
           zIndex={999}
         />

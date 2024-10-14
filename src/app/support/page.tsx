@@ -46,7 +46,7 @@ export default function Support() {
         textShadow={{ base: `1px 1px 4px ${colors.dark}`, md: 'none' }}
         p={{ base: '1rem', md: '2.5rem' }}
         overflowY={'scroll'}
-        pb={'5rem'}
+        pb={'7rem'}
       >
         <H3>How You Can Help</H3>
         <H4>Consider becoming a donor on our crowdfunding page.</H4>
@@ -66,11 +66,7 @@ export default function Support() {
         </Link>
         <H4>Follow us on Instagram, Facebook, and TikTok @kayanarchives</H4>
         <Box display={'inline-block'}>
-          <Link
-            target="_blank"
-            href="https://www.gofundme.com/f/help-fund-kayan-documentary"
-            w={{ base: '100%', md: '40%' }}
-          >
+          <Link href="#" w={{ base: '100%', md: '40%' }}>
             <Button
               mr="1rem"
               mb="1rem"
@@ -82,11 +78,15 @@ export default function Support() {
               justifyContent={'space-between'}
               w="40%"
               h="4rem"
+              opacity={0.6}
+              cursor={'not-allowed'}
+              disabled
+              _hover={{}}
             />
           </Link>
           <Link
             target="_blank"
-            href="https://www.gofundme.com/f/help-fund-kayan-documentary"
+            href="https://www.instagram.com/kayanarchives/"
             w={{ base: '100%', md: '40%' }}
           >
             <Button
@@ -104,11 +104,7 @@ export default function Support() {
               h="4rem"
             />
           </Link>
-          <Link
-            target="_blank"
-            href="https://www.gofundme.com/f/help-fund-kayan-documentary"
-            w={{ base: '100%', md: '40%' }}
-          >
+          <Link href="#" w={{ base: '100%', md: '40%' }}>
             <Button
               mr="1rem"
               mb="1rem"
@@ -120,6 +116,10 @@ export default function Support() {
               justifyContent={'space-between'}
               w="40%"
               h="4rem"
+              opacity={0.6}
+              cursor={'not-allowed'}
+              disabled
+              _hover={{}}
             />
           </Link>
         </Box>

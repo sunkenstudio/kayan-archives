@@ -18,7 +18,7 @@ export const Button = ({ variant, title, stretch, ...rest }: ButtonProps) => {
     return (
       <ChakraButton
         p={'1.5rem'}
-        borderRadius={0}
+        borderRadius={'.5rem'}
         transition="all .25s ease"
         _hover={{ transform: 'scale(1.05)', cursor: 'pointer' }}
         backgroundColor={{ base: colors.dark, md: colors.green2 }}
@@ -37,7 +37,7 @@ export const Button = ({ variant, title, stretch, ...rest }: ButtonProps) => {
     return (
       <ChakraButton
         p={'calc(1.5rem - 4px)'}
-        borderRadius={0}
+        borderRadius={'.5rem'}
         transition="all .25s ease"
         _hover={{ transform: 'scale(1.05)' }}
         border={{
