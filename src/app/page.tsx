@@ -9,7 +9,7 @@ import {
   useMediaQuery,
   useTheme,
 } from '@chakra-ui/react';
-import { H1, H3, H4, Paragraph } from './_components/Typography';
+import { H2, H3, H4, H5, Paragraph } from './_components/Typography';
 // import { DonationProgress } from './_components/DonationProgress';
 import { Button } from './_components/Button';
 import { ArrowUpRight, HandHeart } from '@phosphor-icons/react';
@@ -53,7 +53,7 @@ export default function Home() {
         overflowY={'scroll'}
         pb={'7rem'}
       >
-        <H1>THE KAYAN ARCHIVES</H1>
+        <H2>THE KAYAN ARCHIVES</H2>
         <H3
           fontStyle={'italic'}
           color={colors.green1}
@@ -62,15 +62,15 @@ export default function Home() {
           SARAWAK, MALAYSIA
         </H3>
         {isDesktop ? (
-          <H4
+          <H5
             w={{ base: '100%', md: '85%' }}
             backgroundColor={{ base: 'rgba(0,0,0,.5)', md: 'inherit' }}
           >
             A multidisciplinary project in collaboration with the Kayan tribe of
             Borneo to document, study, and preserve Kayan culture
-          </H4>
+          </H5>
         ) : (
-          <Paragraph w={{ base: '100%', md: '85%' }} p={'1rem'}>
+          <Paragraph w={{ base: '100%', md: '85%' }} py={'1rem'}>
             A multidisciplinary project in collaboration with the Kayan tribe of
             Borneo to document, study, and preserve Kayan culture
           </Paragraph>

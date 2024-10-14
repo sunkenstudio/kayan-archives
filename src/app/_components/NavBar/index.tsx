@@ -38,7 +38,7 @@ export const NavBar = () => {
       display={'flex'}
       alignItems={'center'}
       justifyContent={'space-between'}
-      h={'5rem'}
+      h={'4.5rem'}
       pl={'3rem'}
       backgroundColor={{ base: 'transparent', md: colors.gray }}
       position={'absolute'}
