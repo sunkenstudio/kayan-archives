@@ -21,6 +21,7 @@ export const SocialMediaBar = () => {
         backgroundColor={'#1877F2'}
         opacity={0.6}
         cursor={'not-allowed'}
+        _hover={{}}
       >
         <FacebookLogo size={'2rem'} color={colors.light} />
       </SocialButton>
@@ -37,6 +38,7 @@ export const SocialMediaBar = () => {
         backgroundColor={'#000'}
         opacity={0.6}
         cursor={'not-allowed'}
+        _hover={{}}
       >
         <TiktokLogo size={'2rem'} color={colors.light} />
       </SocialButton>
