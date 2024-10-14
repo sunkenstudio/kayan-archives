@@ -66,7 +66,7 @@ export default function Support() {
         </Link>
         <H4>Follow us on Instagram, Facebook, and TikTok @kayanarchives</H4>
         <Box display={'inline-block'}>
-          <Link target="_blank" href="#" w={{ base: '100%', md: '40%' }}>
+          <Link href="#" w={{ base: '100%', md: '40%' }}>
             <Button
               mr="1rem"
               mb="1rem"
@@ -78,6 +78,10 @@ export default function Support() {
               justifyContent={'space-between'}
               w="40%"
               h="4rem"
+              opacity={0.6}
+              cursor={'not-allowed'}
+              disabled
+              _hover={{}}
             />
           </Link>
           <Link
@@ -100,7 +104,7 @@ export default function Support() {
               h="4rem"
             />
           </Link>
-          <Link target="_blank" href="#" w={{ base: '100%', md: '40%' }}>
+          <Link href="#" w={{ base: '100%', md: '40%' }}>
             <Button
               mr="1rem"
               mb="1rem"
@@ -112,6 +116,10 @@ export default function Support() {
               justifyContent={'space-between'}
               w="40%"
               h="4rem"
+              opacity={0.6}
+              cursor={'not-allowed'}
+              disabled
+              _hover={{}}
             />
           </Link>
         </Box>
