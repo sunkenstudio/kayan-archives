@@ -92,7 +92,7 @@ export const NavBar = () => {
           onClick={onOpen}
           backgroundColor={colors.light}
           padding={'.25rem'}
-          borderRadius={'5rem'}
+          borderRadius={'.5rem'}
           boxShadow={'1px 1px 5px 0px rgba(0,0,0,0.75)'}
           transition="all .25s ease"
           mr="1rem"
